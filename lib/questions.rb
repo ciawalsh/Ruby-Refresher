@@ -1,29 +1,35 @@
+#1
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
   array.select { |word| word.start_with?('a') }
 end
 
+#2
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
   array.select { |word| word.start_with?('a','e','i','o','u') }
 end
 
+#3
 # remove instances of nil (but NOT false) from an array
 def remove_nils_from_array(array)
   array.compact
 end
 
+#4
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
   array2 = array.compact ; array2.reject { |word| word == false }
 end
 
+#5
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
   array.each { |word| word.reverse! }
 end
 
+#6
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
 # give every possible pairing - in this case:
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
@@ -32,23 +38,27 @@ def every_possible_pairing_of_students(array)
   array2 = array.combination(2).to_a  
 end
 
+#7
 # discard the first 3 elements of an array, 
 # e.g. [1, 2, 3, 4, 5, 6] becomes [4, 5, 6]
 def all_elements_except_first_3(array)
   array[3..array.last]
 end
 
+#8
 # add an element to the beginning of an array
 def add_element_to_beginning_of_array(array, element)
   array.unshift(element)
 end
 
+#9
 # sort an array of words by their last letter, e.g.
 # ['sky', 'puma', 'maker'] becomes ['puma', 'maker', 'sky']
 def array_sort_by_last_letter_of_word(array)
   array.sort_by {|name| name[-1]}
 end
 
+#10
 # cut strings in half, and return the first half, e.g.
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
@@ -56,12 +66,14 @@ def get_first_half_of_string(string)
   string.length % 2 == 0 ? string.slice(0..((string.length/2)-1)) : string.slice(0..(string.length/2)) 
 end
 
+#11
 # turn a positive integer into a negative integer. A negative integer
 # stays negative
 def make_numbers_negative(number)
   number > 0 ? number * -1 : number
 end
 
+#12
 # turn an array of numbers into two arrays of numbers, one an array of 
 # even numbers, the other an array of odd numbers
 # even numbers come first
@@ -72,31 +84,42 @@ def separate_array_into_even_and_odd_numbers(array)
   return [array1, array2]
 end
 
+#13
 # count the numbers of elements in an element which are palindromes
 # a palindrome is a word that's the same backwards as forward
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
+  array2 = array.select { |n| n[0] == n[-1] } ; array2.length
 end
 
+#14
 # return the shortest word in an array
 def shortest_word_in_array(array)
+  array.min_by(&:length)
 end
 
+#15
 # return the shortest word in an array
 def longest_word_in_array(array)
+  array.max_by(&:length)
 end
 
+#16
 # add up all the numbers in an array, so [1, 3, 5, 6]
 # returns 15
 def total_of_array(array)
+  array.inject(:+)
 end
 
+#17
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
+  array + array
 end
 
+#18
 # convert a symbol into a string
 def turn_symbol_into_string(symbol)
 end
